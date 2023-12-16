@@ -1,13 +1,15 @@
-package com.SWprj.SWprj.User;
+package itu.blg411.kanver.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import lombok.*;
 
-@Data
 @Entity
-@Table(name = "user")
+@Table(name = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id

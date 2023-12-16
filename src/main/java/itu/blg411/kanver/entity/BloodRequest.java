@@ -1,19 +1,21 @@
-package com.SWprj.SWprj.BloodRequest;
+package itu.blg411.kanver.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
 import lombok.*;
 
-@Data
+
 @Entity
-@Table(name = "blood_request")
+@Table(name = "blood_requests")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class BloodRequest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long requestId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -1,12 +1,14 @@
-package com.SWprj.SWprj.Notification;
+package itu.blg411.kanver.entity;
 
 import jakarta.persistence.*;
 
 import lombok.*;
 
-@Data
 @Entity
-@Table(name = "notification")
+@Table(name = "notifications")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Notification {
 
     @Id

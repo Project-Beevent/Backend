@@ -1,15 +1,14 @@
-package com.SWprj.SWprj.Hospital;
+package itu.blg411.kanver.entity;
 
-import com.SWprj.SWprj.Location.Location;
 import jakarta.persistence.*;
-
 import lombok.*;
 
-@Data
 @Entity
-@Table(name = "hospital")
+@Table(name = "hospitals")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Hospital {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

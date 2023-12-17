@@ -16,8 +16,9 @@ public class NotificationDto {
     private Long hospitalId;
 
     public NotificationDto(Notification notification) {
-        BeanUtils.copyProperties(notification, this, "user", "hospital");
+        BeanUtils.copyProperties(notification, this, "userId", "hospitalId");
 
+        
         if (notification.getUser() != null) {
             this.userId = notification.getUser().getId();
         }

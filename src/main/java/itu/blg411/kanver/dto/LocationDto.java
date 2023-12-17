@@ -21,7 +21,7 @@ public class LocationDto {
     private List<HospitalDto> hospitals = new ArrayList<>();
 
     public LocationDto(Location location) {
-        BeanUtils.copyProperties(location, this);
+        BeanUtils.copyProperties(location, this, "hospitals");
 
         List<Hospital> hospitals = location.getHospitals();
         if (hospitals != null && !hospitals.isEmpty()) {

@@ -27,7 +27,7 @@ public class BloodRequestDto {
     private String description;
 
     public BloodRequestDto(BloodRequest bloodRequest) {
-        BeanUtils.copyProperties(bloodRequest, this, "user", "hospital");
+        BeanUtils.copyProperties(bloodRequest, this, "userId", "hospitalId");
 
         if (bloodRequest.getUser() != null) {
             this.userId = bloodRequest.getUser().getId();

@@ -27,7 +27,7 @@ public class UserDto {
     private List<NotificationDto> notifications = new ArrayList<>();
 
     public UserDto(User user) {
-        BeanUtils.copyProperties(user, this);
+        BeanUtils.copyProperties(user, this, "bloodRequests", "notifications");
 
         List<BloodRequest> bloodRequests = user.getBloodRequests();
         if (bloodRequests != null && !bloodRequests.isEmpty()) {

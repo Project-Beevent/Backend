@@ -3,6 +3,9 @@ package itu.blg411.kanver.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "hospitals")
 @Data
@@ -19,4 +22,11 @@ public class Hospital {
 
     private String name;
     private String phone;
+
+    @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Notification> notifications = new ArrayList<>();
+
+    @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<BloodRequest> bloodRequests = new ArrayList<>();
+
 }

@@ -3,6 +3,9 @@ package itu.blg411.kanver.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 import lombok.*;
 
 @Entity
@@ -26,4 +29,10 @@ public class User {
     private int age;
     private LocalDate lastDonationDate;
     private int donationCount;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<BloodRequest> bloodRequests = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Notification> notifications = new ArrayList<>();
 }

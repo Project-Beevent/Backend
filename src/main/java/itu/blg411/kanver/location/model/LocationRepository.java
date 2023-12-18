@@ -1,6 +1,6 @@
-package itu.blg411.kanver.repository;
+package itu.blg411.kanver.location.model;
 
-import itu.blg411.kanver.entity.Location;
+import itu.blg411.kanver.location.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

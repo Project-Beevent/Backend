@@ -1,9 +1,12 @@
-package itu.blg411.kanver.entity;
+package itu.blg411.kanver.bloodRequest.model;
 
+import itu.blg411.kanver.hospital.model.Hospital;
+import itu.blg411.kanver.user.model.User;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import lombok.*;
+
 
 
 @Entity

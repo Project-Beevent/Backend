@@ -1,7 +1,7 @@
-package itu.blg411.kanver.repository;
+package itu.blg411.kanver.notification.model;
 
 
-import itu.blg411.kanver.entity.Notification;
+import itu.blg411.kanver.notification.model.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

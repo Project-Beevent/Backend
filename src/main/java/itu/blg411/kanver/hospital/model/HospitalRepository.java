@@ -1,6 +1,6 @@
-package itu.blg411.kanver.repository;
+package itu.blg411.kanver.hospital.model;
 
-import itu.blg411.kanver.entity.Hospital;
+import itu.blg411.kanver.hospital.model.Hospital;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,6 +1,6 @@
-package itu.blg411.kanver.repository;
+package itu.blg411.kanver.bloodRequest.model;
 
-import itu.blg411.kanver.entity.BloodRequest;
+import itu.blg411.kanver.bloodRequest.model.BloodRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,6 @@
-package itu.blg411.kanver.entity;
+package itu.blg411.kanver.location.model;
 
+import itu.blg411.kanver.hospital.model.Hospital;
 import jakarta.persistence.*;
 import lombok.*;
 

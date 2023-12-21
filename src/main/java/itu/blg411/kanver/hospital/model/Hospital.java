@@ -1,7 +1,7 @@
 package itu.blg411.kanver.hospital.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import itu.blg411.kanver.bloodRequest.model.BloodRequest;
-import itu.blg411.kanver.notification.model.Notification;
 import itu.blg411.kanver.location.model.Location;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,10 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "hospitals")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Setter
 public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +24,7 @@ public class Hospital {
     private String name;
     private String phone;
 
-    @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Notification> notifications = new ArrayList<>();
-
+    @JsonIgnore
     @OneToMany(mappedBy = "hospital", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<BloodRequest> bloodRequests = new ArrayList<>();
 

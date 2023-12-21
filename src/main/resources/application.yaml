@@ -14,6 +14,8 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    location: java/itu/blg411/kanver:application-test.yaml
 
 
 

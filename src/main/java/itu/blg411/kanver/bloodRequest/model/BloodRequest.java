@@ -7,13 +7,10 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import lombok.*;
 
-
-
 @Entity
-@Table(name = "blood_requests")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "blood_request")
+@Getter
+@Setter
 public class BloodRequest {
 
     @Id
@@ -28,6 +25,7 @@ public class BloodRequest {
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
 
+    @NonNull
     private String bloodType;
     private String status;
     private LocalDate dateRequested;

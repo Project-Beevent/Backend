@@ -1,7 +1,7 @@
 package itu.blg411.kanver.user.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import itu.blg411.kanver.bloodRequest.model.BloodRequest;
-import itu.blg411.kanver.notification.model.Notification;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -29,9 +29,8 @@ public class User {
     private Integer age;
     private LocalDate lastDonationDate;
     private Integer donationCount;
+
+    @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<BloodRequest> bloodRequests = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Notification> notifications = new ArrayList<>();
 }

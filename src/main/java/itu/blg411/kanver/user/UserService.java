@@ -34,6 +34,19 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public User updateUser(Long userId, User updatedUser) {
+        Optional<User> existingUserOptional = userRepository.findById(userId);
+
+        if (existingUserOptional.isPresent()) {
+            User existingUser = existingUserOptional.get();
+            updateUserAttributes(updatedUser, existingUser);
+            return userRepository.save(existingUser);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with ID: " + userId);
+        }
+    }
+
     public void deleteUserById(Long userId) {
         if (userRepository.existsById(userId)) {
             userRepository.deleteById(userId);
@@ -42,21 +55,10 @@ public class UserService {
         }
     }
 
-    public User updateUser(Long userId, User updatedUser) {
-        Optional<User> existingUserOptional = userRepository.findById(userId);
-
-        if (existingUserOptional.isPresent()) {
-            User existingUser = getUser(updatedUser, existingUserOptional);
-
-            return userRepository.save(existingUser);
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with ID: " + userId);
+    private void updateUserAttributes(User updatedUser, User existingUser) {
+        if (updatedUser.getEmail() != null && !updatedUser.getEmail().equals(existingUser.getEmail())) {
+            validateUserEmailUniqueness(updatedUser.getEmail());
         }
-    }
-
-    private User getUser(User updatedUser, Optional<User> existingUserOptional) {
-        User existingUser = existingUserOptional.get();
-
         existingUser.setFullName(updatedUser.getFullName() != null ? updatedUser.getFullName() : existingUser.getFullName());
         existingUser.setEmail(updatedUser.getEmail() != null ? updatedUser.getEmail() : existingUser.getEmail());
         existingUser.setPhone(updatedUser.getPhone() != null ? updatedUser.getPhone() : existingUser.getPhone());
@@ -65,8 +67,6 @@ public class UserService {
         existingUser.setTcNo(updatedUser.getTcNo() != null ? updatedUser.getTcNo() : existingUser.getTcNo());
         existingUser.setAge(updatedUser.getAge() != null ? updatedUser.getAge() : existingUser.getAge());
         existingUser.setLastDonationDate(updatedUser.getLastDonationDate() != null ? updatedUser.getLastDonationDate() : existingUser.getLastDonationDate());
-
-        return existingUser;
     }
 
 

@@ -8,7 +8,7 @@ Ensure you have the following prerequisites installed on your system:
 
 - [Docker](https://www.docker.com/get-started) - For running a PostgreSQL container.
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
-- Integrated Development Environment (IDE) for Spring, such as [IntelliJ](https://www.jetbrains.com/idea/download/?source=google&medium=cpc&campaign=EMEA_en_TR_IDEA_Branded&term=intellij&content=619479151433&gclid=CjwKCAiApuCrBhAuEiwA8VJ6JlQbcnH8jIklp-ZEi2X74TRKNA-Jz5cWjWwumwTgZQaHw7auozMrEhoCINEQAvD_BwE&section=windows).
+- Integrated Development Environment (IDE), such as [IntelliJ](https://www.jetbrains.com/idea/download/?source=google&medium=cpc&campaign=EMEA_en_TR_IDEA_Branded&term=intellij&content=619479151433&gclid=CjwKCAiApuCrBhAuEiwA8VJ6JlQbcnH8jIklp-ZEi2X74TRKNA-Jz5cWjWwumwTgZQaHw7auozMrEhoCINEQAvD_BwE&section=windows).
 
 ## Running the Application
 

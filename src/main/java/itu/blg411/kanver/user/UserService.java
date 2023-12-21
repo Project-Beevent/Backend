@@ -26,11 +26,10 @@ public class UserService {
     public User getUserById(Long userId) {
         Optional<User> userOptional = userRepository.findById(userId);
         if (userOptional.isPresent()) {
-            return userRepository.findById(userId).get();
+            return userOptional.get();
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found with ID: " + userId);
         }
-
     }
     public List<User> getAllUsers() {
         return userRepository.findAll();

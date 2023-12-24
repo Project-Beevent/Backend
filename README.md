@@ -25,6 +25,13 @@ docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=k
 ### 3. Access the Application
 Open your web browser and navigate to http://localhost:8080 to access the Kanver application.
 
-## Postman Collection
+## After Running
+After successfully launching Kanver, and the server is up and running, you can explore one of the following:
 
-To test the APIs using Postman, import the provided Postman Collection into your Postman workspace. The collection includes sample requests for creating, retrieving, updating, and deleting users.
+### 1. Postman Collection
+Import the provided Postman Collection into your Postman workspace. The collection includes sample requests for creating, retrieving, updating, and deleting users and other models.
+
+### 2. API Documentation
+
+Use swagger to explore the available endpoints and try them out. Find it at:
+http://localhost:8080/swagger-ui/index.html

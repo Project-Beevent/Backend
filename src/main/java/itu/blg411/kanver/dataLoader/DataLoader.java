@@ -22,24 +22,26 @@ public class DataLoader {
     @Bean
     public CommandLineRunner loadData() {
         return args -> {
-            List<Location> locations = Arrays.asList(
-                    createLocation("Istanbul", "Fatih", "SultanAhmet"),
-                    createLocation("Istanbul", "Fatih", "SultanAhmet"),
-                    createLocation("Istanbul", "Fatih", "Topkapi"),
-                    createLocation("Ankara", "Cankaya", "Kizilay"),
-                    createLocation("Ankara", "Mamak", "Etlik")
+            if (locationService.getAllLocations().isEmpty()) {
+                List<Location> locations = Arrays.asList(
+                        createLocation("Istanbul", "Fatih", "SultanAhmet"),
+                        createLocation("Istanbul", "Fatih", "Topkapi"),
+                        createLocation("Ankara", "Cankaya", "Kizilay"),
+                        createLocation("Ankara", "Mamak", "Etlik")
+                );
+                locationService.createLocations(locations);
+            }
 
-            );
-            locationService.createLocations(locations);
-
-            List<Hospital> sampleHospitals = Arrays.asList(
-                    createHospital("Fatih Hospital", "123456789", 1L),
-                    createHospital("A Hastane", "987654321", 1L),
-                    createHospital("Medilif", "111223344", 3L),
-                    createHospital("MediHaus", "555666777", 4L),
-                    createHospital("Medicane", "888999000", 4L)
-            );
-            hospitalService.createHospitals(sampleHospitals);
+            if (hospitalService.getAllHospitals().isEmpty()) {
+                List<Hospital> sampleHospitals = Arrays.asList(
+                        createHospital("Fatih Hospital", "123456789", 1L),
+                        createHospital("A Hastane", "987654321", 1L),
+                        createHospital("Medilif", "111223344", 3L),
+                        createHospital("MediHaus", "555666777", 4L),
+                        createHospital("Medicane", "888999000", 4L)
+                );
+                hospitalService.createHospitals(sampleHospitals);
+            }
         };
     }
 
@@ -59,4 +61,3 @@ public class DataLoader {
         return hospital;
     }
 }
-

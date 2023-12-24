@@ -1,9 +1,7 @@
 package itu.blg411.kanver.hospital;
 
 import itu.blg411.kanver.hospital.model.Hospital;
-import itu.blg411.kanver.location.LocationService;
 import itu.blg411.kanver.hospital.model.HospitalRepository;
-import itu.blg411.kanver.user.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -33,6 +31,7 @@ public class HospitalService {
         return hospitalRepository.findAll();
     }
 
-
-
+    public List<Hospital> getHospitalsByCity(String city) {
+        return hospitalRepository.getHospitalsByCity(city);
+    }
 }

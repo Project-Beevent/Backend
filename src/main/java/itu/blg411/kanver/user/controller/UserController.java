@@ -26,22 +26,19 @@ public class UserController {
         User user = userService.getUserById(userId);
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }
-
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.status(HttpStatus.OK).body(users);
     }
-
-    @DeleteMapping("/{userId}")
-    public ResponseEntity<String> deleteUserById(@PathVariable Long userId) {
-        userService.deleteUserById(userId);
-        return ResponseEntity.status(HttpStatus.OK).body("The user is deleted successfully");
-    }
-
     @PutMapping("/{userId}")
     public ResponseEntity<User> updateUser(@PathVariable Long userId, @RequestBody User updatedUser) {
         User updated = userService.updateUser(userId, updatedUser);
         return ResponseEntity.status(HttpStatus.OK).body(updated);
+    }
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<String> deleteUserById(@PathVariable Long userId) {
+        userService.deleteUserById(userId);
+        return ResponseEntity.status(HttpStatus.OK).body("The user is deleted successfully");
     }
 }

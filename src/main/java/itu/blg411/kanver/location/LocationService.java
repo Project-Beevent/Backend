@@ -33,17 +33,6 @@ public class LocationService {
         return locationRepository.findAll();
     }
 
-    public List<Hospital> getHospitalsByCity(String cityName) {
-        List<Location> locations = locationRepository.findByCity(cityName);
-        if (!locations.isEmpty()) {
-            return locations.stream()
-                    .flatMap(location -> location.getHospitals().stream())
-                    .collect(Collectors.toList());
-        } else {
-            return List.of();
-        }
-    }
-
 }
 
 

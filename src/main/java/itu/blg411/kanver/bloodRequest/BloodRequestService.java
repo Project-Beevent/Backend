@@ -4,7 +4,6 @@ import itu.blg411.kanver.bloodRequest.model.BloodRequest;
 import itu.blg411.kanver.bloodRequest.model.BloodRequestRepository;
 import itu.blg411.kanver.hospital.HospitalService;
 import itu.blg411.kanver.user.UserService;
-import itu.blg411.kanver.user.model.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -71,6 +70,14 @@ public class BloodRequestService {
 
     public List<BloodRequest> getBloodRequestsByBloodType(String bloodType) {
         return bloodRequestRepository.findByBloodType(bloodType);
+    }
+
+    public List<BloodRequest> getBloodRequestsByCity(String city) {
+        return bloodRequestRepository.getBloodRequestsByCity(city);
+    }
+
+    public List<BloodRequest> getBloodRequestsByBloodTypeAndCity(String bloodType, String city) {
+        return bloodRequestRepository.getBloodRequestsByBloodTypeAndCity(bloodType, city);
     }
 
 }

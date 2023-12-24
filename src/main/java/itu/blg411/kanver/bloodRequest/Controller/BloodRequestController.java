@@ -1,4 +1,4 @@
-package itu.blg411.kanver.bloodRequest.controller;
+package itu.blg411.kanver.bloodRequest.Controller;
 
 import itu.blg411.kanver.bloodRequest.BloodRequestService;
 import itu.blg411.kanver.bloodRequest.model.BloodRequest;
@@ -23,19 +23,14 @@ public class BloodRequestController {
         BloodRequest createdBloodRequest = bloodRequestService.createBloodRequest(userId, hospitalId, newBloodRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdBloodRequest);
     }
-    @GetMapping("/users/{userId}")
-    public ResponseEntity<List<BloodRequest>> getBloodRequestsByUserId(@PathVariable Long userId) {
-        List<BloodRequest> bloodRequests = bloodRequestService.getBloodRequestsByUserId(userId);
-        return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
-    }
     @GetMapping
     public ResponseEntity<List<BloodRequest>> getAllBloodRequests() {
         List<BloodRequest> bloodRequests = bloodRequestService.getAllBloodRequests();
         return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
     }
-
     @PutMapping("/{requestId}")
-    public ResponseEntity<BloodRequest> updateBloodRequest(@PathVariable Long requestId, @RequestBody BloodRequest updatedBloodRequest) {
+    public ResponseEntity<BloodRequest> updateBloodRequest(@PathVariable Long requestId,
+                                                           @RequestBody BloodRequest updatedBloodRequest) {
         BloodRequest updated =  bloodRequestService.updateBloodRequest(requestId, updatedBloodRequest);
         return ResponseEntity.status(HttpStatus.OK).body(updated);
     }
@@ -45,16 +40,29 @@ public class BloodRequestController {
         return ResponseEntity.status(HttpStatus.OK).body("The blood request is deleted successfully");
     }
 
-    @GetMapping("/filter/{blood_type}")
-    public ResponseEntity<List<BloodRequest>> getBloodRequestsByBloodType(@PathVariable String blood_type) {
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<List<BloodRequest>> getBloodRequestsByUserId(@PathVariable Long userId) {
+        List<BloodRequest> bloodRequests = bloodRequestService.getBloodRequestsByUserId(userId);
+        return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
+    }
+    @GetMapping(params = "blood_type")
+    public ResponseEntity<List<BloodRequest>> getBloodRequestsByBloodType(@RequestParam(required = false) String blood_type) {
         List<BloodRequest> bloodRequests = bloodRequestService.getBloodRequestsByBloodType(blood_type);
         return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
     }
+    @GetMapping(params = "city")
+    public ResponseEntity<List<BloodRequest>> getBloodRequestsByCity(@RequestParam(required = false) String city) {
+        List<BloodRequest> bloodRequests = bloodRequestService.getBloodRequestsByCity(city);
+        return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
+    }
 
-//    @GetMapping("/filter")
-//    public ResponseEntity<List<BloodRequest>> getBloodRequestsByBloodType(@RequestParam String blood_type) {
-//        List<BloodRequest> bloodRequests = bloodRequestService.getBloodRequestsByBloodType(blood_type);
-//        return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
-//    }
+    @GetMapping(params = {"blood_type", "city"})
+    public ResponseEntity<List<BloodRequest>> getBloodRequestsByBloodTypeAndCity(@RequestParam(required = false) String blood_type,
+                                                                                 @RequestParam(required = false) String city) {
+        List<BloodRequest> bloodRequests = bloodRequestService.getBloodRequestsByBloodTypeAndCity(blood_type, city);
+        return ResponseEntity.status(HttpStatus.OK).body(bloodRequests);
+    }
+
+
 
 }

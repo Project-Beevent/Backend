@@ -8,7 +8,7 @@ Ensure you have the following prerequisites installed on your system:
 
 - [Docker](https://www.docker.com/get-started) - For running a PostgreSQL container.
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase-downloads.html)
-- Integrated Development Environment (IDE), such as [IntelliJ](https://www.jetbrains.com/idea/download/?source=google&medium=cpc&campaign=EMEA_en_TR_IDEA_Branded&term=intellij&content=619479151433&gclid=CjwKCAiApuCrBhAuEiwA8VJ6JlQbcnH8jIklp-ZEi2X74TRKNA-Jz5cWjWwumwTgZQaHw7auozMrEhoCINEQAvD_BwE&section=windows).
+- Integrated Development Environment (IDE), such as [IntelliJ](https://www.jetbrains.com/idea/download/?source=google&medium=cpc&campaign=EMEA_en_TR_IDEA_Branded&term=intellij&content=619479151433&gclid=CjwKCAiApuCrBhAuEiwA8VJ6JlQbcnH8jIklp-ZEi2X74TRKNA-Jz5cWjWwumwTgZQaHw7auozMrEhoCINEQAvD_BwE&section=windows) or [VSCode](https://visualstudio.microsoft.com/downloads/).
 
 ## Running the Application
 
@@ -21,6 +21,16 @@ docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=k
 ```
 
 ### 2. Build and run the application 
+Now that the PostgreSQL container is running, you can build and start the Kanver Spring Boot application. Follow these steps:
+
+1. Open the terminal, then navigate to the root directory of the Kanver project.
+2. Run the following Gradle command to build and run the application:
+
+```
+./gradlew bootRun
+```
+This command will compile the application, start the Spring Boot server, and deploy the Kanver application.
+
 
 ### 3. Access the Application
 Open your web browser and navigate to http://localhost:8080 to access the Kanver application.
@@ -31,7 +41,7 @@ After successfully launching Kanver, and the server is up and running, you can e
 ### 1. Postman Collection
 Import the provided Postman Collection into your Postman workspace. The collection includes sample requests for creating, retrieving, updating, and deleting users and other models.
 
-### 2. API Documentation
+### 2. Swagger for API Documentation
 
 Use swagger to explore the available endpoints and try them out. Find it at:
 http://localhost:8080/swagger-ui/index.html

@@ -1,3 +1,5 @@
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.User.UserControllerTest
+
 package itu.blg411.kanver.User;
 
 import java.time.LocalDate;

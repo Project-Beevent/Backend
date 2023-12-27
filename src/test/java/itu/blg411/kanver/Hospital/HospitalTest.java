@@ -1,3 +1,5 @@
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.Hospital.HospitalTest
+
 package itu.blg411.kanver.Hospital;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

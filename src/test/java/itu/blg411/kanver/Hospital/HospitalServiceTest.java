@@ -1,3 +1,5 @@
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.Hospital.HospitalServiceTest
+
 package itu.blg411.kanver.Hospital;
 
 import itu.blg411.kanver.hospital.HospitalService;

@@ -24,8 +24,6 @@ public class BloodRequest {
     @ManyToOne
     @JoinColumn(name = "hospital_id")
     private Hospital hospital;
-
-    @NonNull
     private String bloodType;
     private String status;
     private LocalDate dateRequested;

@@ -50,13 +50,12 @@ public class BloodRequestService {
         }
     }
     private void updateBloodRequestAttributes(BloodRequest updatedBloodRequest, BloodRequest existingBloodRequest) {
-        existingBloodRequest.setBloodType(updatedBloodRequest.getBloodType());
+        existingBloodRequest.setBloodType(updatedBloodRequest.getBloodType() != null ? updatedBloodRequest.getBloodType() : existingBloodRequest.getBloodType());
         existingBloodRequest.setStatus(updatedBloodRequest.getStatus() != null ? updatedBloodRequest.getStatus() : existingBloodRequest.getStatus());
         existingBloodRequest.setDateRequested(updatedBloodRequest.getDateRequested() != null ? updatedBloodRequest.getDateRequested() : existingBloodRequest.getDateRequested());
         existingBloodRequest.setTitle(updatedBloodRequest.getTitle() != null ? updatedBloodRequest.getTitle() : existingBloodRequest.getTitle());
         existingBloodRequest.setDescription(updatedBloodRequest.getDescription() != null ? updatedBloodRequest.getDescription() : existingBloodRequest.getDescription());
 
-        //existingBloodRequest.setUser(updatedBloodRequest.getUser() != null ? updatedBloodRequest.getUser() : existingBloodRequest.getUser());
         existingBloodRequest.setHospital(updatedBloodRequest.getHospital() != null ? updatedBloodRequest.getHospital() : existingBloodRequest.getHospital());
     }
 

@@ -17,8 +17,9 @@ Ensure you have the following prerequisites installed on your system:
 - Run the following command to start a PostgreSQL Docker container:
 
 ```
-docker run --name postgres-docker -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=kanver -p 5432:5432 -d postgres
+docker run --name postgres-docker -e POSTGRES_PASSWORD=password -e POSTGRES_DB=kanver -p 5432:5432 -d postgres
 ```
+
 
 ### 2. Build and run the application 
 Now that the PostgreSQL container is running, you can build and start the Kanver Spring Boot application. Follow these steps:

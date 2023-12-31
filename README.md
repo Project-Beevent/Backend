@@ -46,3 +46,17 @@ Import the provided Postman Collection into your Postman workspace. The collecti
 
 Use swagger to explore the available endpoints and try them out. Find it at:
 http://localhost:8080/swagger-ui/index.html
+
+### 3. Testing
+
+Run the following command to test:
+
+```
+./gradlew test --tests itu.blg411.kanver.*.*
+```
+
+Code Coverage (JaCoCo) reports can be found in:
+
+```
+build/reports/jacoco/test/html
+```

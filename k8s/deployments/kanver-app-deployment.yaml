@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kanver-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kanver-app
+  template:
+    metadata:
+      labels:
+        app: kanver-app
+    spec:
+      containers:
+        - name: kanver-app
+          image: kanveracr.azurecr.io/kanver-app:v1
+          ports:
+            - containerPort: 8080

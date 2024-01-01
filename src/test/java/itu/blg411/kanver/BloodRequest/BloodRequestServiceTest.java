@@ -6,6 +6,7 @@ import itu.blg411.kanver.bloodRequest.BloodRequestService;
 import itu.blg411.kanver.bloodRequest.model.BloodRequest;
 import itu.blg411.kanver.bloodRequest.model.BloodRequestRepository;
 import itu.blg411.kanver.hospital.HospitalService;
+import itu.blg411.kanver.hospital.model.Hospital;
 import itu.blg411.kanver.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +19,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -108,6 +111,32 @@ class BloodRequestServiceTest {
 
         verify(bloodRequestRepository, times(1)).findAll();
         verifyNoMoreInteractions(bloodRequestRepository, userService, hospitalService);
+    }
+
+    @Test
+    void updateBloodRequestAttributes() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        BloodRequest updatedBloodRequest = new BloodRequest();
+        BloodRequest existingBloodRequest = new BloodRequest();
+        Hospital newHospital = new Hospital();
+
+        updatedBloodRequest.setBloodType("AB+");
+        updatedBloodRequest.setStatus("Completed");
+        updatedBloodRequest.setDateRequested(LocalDate.now().minusDays(1));
+        updatedBloodRequest.setTitle("Updated Title");
+        updatedBloodRequest.setDescription("Updated Description");
+        updatedBloodRequest.setHospital(newHospital);
+
+        Method updateBloodRequestAttributes = BloodRequestService.class.getDeclaredMethod("updateBloodRequestAttributes", BloodRequest.class, BloodRequest.class);
+        updateBloodRequestAttributes.setAccessible(true);
+
+        updateBloodRequestAttributes.invoke(bloodRequestService, updatedBloodRequest, existingBloodRequest);
+
+        assertEquals("AB+", existingBloodRequest.getBloodType());
+        assertEquals("Completed", existingBloodRequest.getStatus());
+        assertEquals(LocalDate.now().minusDays(1), existingBloodRequest.getDateRequested());
+        assertEquals("Updated Title", existingBloodRequest.getTitle());
+        assertEquals("Updated Description", existingBloodRequest.getDescription());
+        assertEquals(newHospital, existingBloodRequest.getHospital());
     }
 
     @Test

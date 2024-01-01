@@ -2,6 +2,7 @@
 
 package itu.blg411.kanver.Hospital;
 
+import itu.blg411.kanver.bloodRequest.model.BloodRequest;
 import itu.blg411.kanver.hospital.HospitalService;
 import itu.blg411.kanver.hospital.model.Hospital;
 import itu.blg411.kanver.hospital.model.HospitalRepository;
@@ -12,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +39,6 @@ class HospitalServiceTest {
     void testGetHospitalById() {
         Long hospitalId = 1L;
         Hospital expectedHospital = new Hospital();
-        expectedHospital.setId(hospitalId);
 
         when(hospitalRepository.findById(hospitalId)).thenReturn(Optional.of(expectedHospital));
 
@@ -64,5 +65,17 @@ class HospitalServiceTest {
         List<Hospital> actualHospitals = hospitalService.getAllHospitals();
 
         assertEquals(expectedHospitals, actualHospitals);
+    }
+
+    @Test
+    void testGetHospitalByCity() {
+        String city = "Istanbul";
+        List<Hospital> expectedHospitals = new ArrayList<>();
+
+        when(hospitalRepository.getHospitalsByCity(city)).thenReturn(expectedHospitals);
+
+        List<Hospital> resultHospitals = hospitalService.getHospitalsByCity(city);
+
+        assertEquals(expectedHospitals, resultHospitals);
     }
 }

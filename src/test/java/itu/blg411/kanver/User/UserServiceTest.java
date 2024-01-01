@@ -2,6 +2,9 @@
 
 package itu.blg411.kanver.User;
 
+import itu.blg411.kanver.bloodRequest.BloodRequestService;
+import itu.blg411.kanver.bloodRequest.model.BloodRequest;
+import itu.blg411.kanver.hospital.model.Hospital;
 import itu.blg411.kanver.user.UserService;
 import itu.blg411.kanver.user.model.User;
 import itu.blg411.kanver.user.model.UserRepository;
@@ -11,7 +14,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.web.server.ResponseStatusException;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -141,7 +149,7 @@ class UserServiceTest {
 
         assertNotNull(resultUser);
         assertEquals(updatedUser.getFullName(), resultUser.getFullName());
-        assertEquals(existingUser.getEmail(), resultUser.getEmail());  // Ensure non-updated fields remain the same
+        assertEquals(existingUser.getEmail(), resultUser.getEmail());
     }
 
     @Test
@@ -152,5 +160,36 @@ class UserServiceTest {
         when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
         assertThrows(ResponseStatusException.class, () -> userService.updateUser(userId, updatedUser));
+    }
+
+    @Test
+    void updateUserAttributes() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        User updatedUser = new User();
+        User existingUser = new User();
+
+        LocalDate lastLocationDate = LocalDate.of(2024, 1, 1);
+
+        updatedUser.setFullName("John Doe");
+        updatedUser.setEmail("johndoe@example.com");
+        updatedUser.setPhone("05555555555");
+        updatedUser.setGender("M");
+        updatedUser.setBloodType("A+");
+        updatedUser.setTcNo("01234567890");
+        updatedUser.setAge(1);
+        updatedUser.setLastDonationDate(lastLocationDate);
+
+        Method updateUserAttributes = UserService.class.getDeclaredMethod("updateUserAttributes", User.class, User.class);
+        updateUserAttributes.setAccessible(true);
+
+        updateUserAttributes.invoke(userService, updatedUser, existingUser);
+
+        assertEquals("John Doe", existingUser.getFullName());
+        assertEquals("johndoe@example.com", existingUser.getEmail());
+        assertEquals("05555555555", existingUser.getPhone());
+        assertEquals("M", existingUser.getGender());
+        assertEquals("A+", existingUser.getBloodType());
+        assertEquals("01234567890", existingUser.getTcNo());
+        assertEquals(1, existingUser.getAge());
+        assertEquals(lastLocationDate, existingUser.getLastDonationDate());
     }
 }

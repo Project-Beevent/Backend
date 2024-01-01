@@ -38,6 +38,11 @@ class LocationTest {
     }
 
     @Test
+    void setCityNonNull(){
+        assertThrows(NullPointerException.class, () -> location.setCity(null));
+    }
+
+    @Test
     void hospitalsGetterAndSetter() {
         List<Hospital> hospitals = new ArrayList<>();
 
@@ -71,5 +76,30 @@ class LocationTest {
     @Test
     void noArgsConstructor() {
         assertNotNull(location);
+    }
+
+    @Test
+    void allArgsConstructor() {
+        Long id = 1L;
+        String city = "Istanbul";
+        String district = "Sariyer";
+        String neighborhood = "Maslak";
+        List<Hospital> hospitals = new ArrayList<>();
+
+        Location newLocation = new Location(id, city, district, neighborhood, hospitals);
+
+        assertNotNull(newLocation);
+    }
+
+    @Test
+    void allArgsConstructorCityNullThrowsException() {
+        Long id = 1L;
+        String district = "Kadikoy";
+        String neighborhood = "Goztepe";
+        List<Hospital> hospitals = new ArrayList<>();
+
+        assertThrows(NullPointerException.class, () -> {
+            Location newLocation = new Location(id, null, district, neighborhood, hospitals);
+        });
     }
 }

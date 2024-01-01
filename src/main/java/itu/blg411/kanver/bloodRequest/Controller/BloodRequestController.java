@@ -23,6 +23,11 @@ public class BloodRequestController {
         BloodRequest createdBloodRequest = bloodRequestService.createBloodRequest(userId, hospitalId, newBloodRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdBloodRequest);
     }
+    @GetMapping("/{requestId}")
+    public ResponseEntity<BloodRequest> getBloodRequestById(@PathVariable Long requestId) {
+        BloodRequest bloodRequest = bloodRequestService.getBloodRequestById(requestId);
+        return ResponseEntity.status(HttpStatus.OK).body(bloodRequest);
+    }
     @GetMapping
     public ResponseEntity<List<BloodRequest>> getAllBloodRequests() {
         List<BloodRequest> bloodRequests = bloodRequestService.getAllBloodRequests();

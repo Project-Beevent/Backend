@@ -31,6 +31,14 @@ public class BloodRequestService {
         newBloodRequest.setDateRequested(LocalDate.now());
         return bloodRequestRepository.save(newBloodRequest);
     }
+    public BloodRequest getBloodRequestById(Long requestId) {
+        Optional<BloodRequest> bloodRequestOptional = bloodRequestRepository.findById(requestId);
+        if (bloodRequestOptional.isPresent()) {
+            return bloodRequestOptional.get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Blood Request not found with ID: " + requestId);
+        }
+    }
     public List<BloodRequest> getBloodRequestsByUserId(Long userId) {
         userService.getUserById(userId);
         return bloodRequestRepository.findByUserId(userId);

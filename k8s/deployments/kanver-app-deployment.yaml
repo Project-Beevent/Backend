@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: kanver-app
-          image: kanveracr.azurecr.io/kanver-app:v1
+          image: kanveracr.azurecr.io/kanver-app:latest
           ports:
             - containerPort: 8080
           env:

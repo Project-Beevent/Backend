@@ -1,6 +1,6 @@
-// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.User.UserControllerTest
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.User.controller.UserControllerTest
 
-package itu.blg411.kanver.User;
+package itu.blg411.kanver.User.controller;
 
 import java.time.LocalDate;
 import itu.blg411.kanver.user.UserService;

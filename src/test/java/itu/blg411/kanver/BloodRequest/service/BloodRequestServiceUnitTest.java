@@ -1,6 +1,6 @@
-// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.BloodRequest.BloodRequestServiceTest
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.BloodRequest.service.BloodRequestServiceUnitTest
 
-package itu.blg411.kanver.BloodRequest;
+package itu.blg411.kanver.BloodRequest.service;
 
 import itu.blg411.kanver.bloodRequest.BloodRequestService;
 import itu.blg411.kanver.bloodRequest.model.BloodRequest;
@@ -26,7 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class BloodRequestServiceTest {
+class BloodRequestServiceUnitTest {
 
     @Mock
     private BloodRequestRepository bloodRequestRepository;

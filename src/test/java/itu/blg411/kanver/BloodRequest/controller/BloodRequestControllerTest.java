@@ -1,6 +1,6 @@
-// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.BloodRequest.BloodRequestControllerTest
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.BloodRequest.controller.BloodRequestControllerTest
 
-package itu.blg411.kanver.BloodRequest;
+package itu.blg411.kanver.BloodRequest.controller;
 
 import itu.blg411.kanver.bloodRequest.BloodRequestService;
 import itu.blg411.kanver.bloodRequest.Controller.BloodRequestController;

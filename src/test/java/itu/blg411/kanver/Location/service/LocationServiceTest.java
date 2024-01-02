@@ -1,6 +1,6 @@
-// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.Location.LocationServiceTest
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.Location.service.LocationServiceTest
 
-package itu.blg411.kanver.Location;
+package itu.blg411.kanver.Location.service;
 
 import itu.blg411.kanver.location.LocationService;
 import itu.blg411.kanver.location.model.Location;

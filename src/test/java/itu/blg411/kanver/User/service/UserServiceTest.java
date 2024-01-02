@@ -1,6 +1,6 @@
-// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.User.UserServiceTest
+// run this command to start testing -> ./gradlew test --tests itu.blg411.kanver.User.service.UserServiceTest
 
-package itu.blg411.kanver.User;
+package itu.blg411.kanver.User.service;
 
 import itu.blg411.kanver.bloodRequest.BloodRequestService;
 import itu.blg411.kanver.bloodRequest.model.BloodRequest;

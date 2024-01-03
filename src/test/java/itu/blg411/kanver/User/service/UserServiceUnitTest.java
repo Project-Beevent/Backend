@@ -2,9 +2,6 @@
 
 package itu.blg411.kanver.User.service;
 
-import itu.blg411.kanver.bloodRequest.BloodRequestService;
-import itu.blg411.kanver.bloodRequest.model.BloodRequest;
-import itu.blg411.kanver.hospital.model.Hospital;
 import itu.blg411.kanver.user.UserService;
 import itu.blg411.kanver.user.model.User;
 import itu.blg411.kanver.user.model.UserRepository;
@@ -17,8 +14,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +22,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-class UserServiceTest {
+class UserServiceUnitTest {
 
     @Mock
     private UserRepository userRepository;

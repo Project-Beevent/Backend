@@ -2,7 +2,6 @@
 
 package itu.blg411.kanver.Hospital.service;
 
-import itu.blg411.kanver.bloodRequest.model.BloodRequest;
 import itu.blg411.kanver.hospital.HospitalService;
 import itu.blg411.kanver.hospital.model.Hospital;
 import itu.blg411.kanver.hospital.model.HospitalRepository;
@@ -22,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-class HospitalServiceTest {
+class HospitalServiceUnitTest {
 
     @Mock
     private HospitalRepository hospitalRepository;

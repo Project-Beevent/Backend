@@ -67,12 +67,16 @@ public class UserServiceIntegrationTest {
         user2.setEmail("user2@example.com");
         user2.setTcNo("22222222222");
 
+        List<User> allUsersOld = userService.getAllUsers();
+
         userService.createUser(user1);
         userService.createUser(user2);
 
-        List<User> allUsers = userService.getAllUsers();
+        List<User> allUsersNew = userService.getAllUsers();
 
-        assertEquals(2, allUsers.size());
+        Integer difference = allUsersNew.size() - allUsersOld.size();
+
+        assertEquals(2, difference);
     }
 
     @Test

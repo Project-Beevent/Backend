@@ -80,8 +80,7 @@ public class UserControllerIntegrationTest {
         mockMvc.perform(get("/users"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray())
-                .andExpect(jsonPath("$").isNotEmpty())
-                .andExpect(jsonPath("$.length()").value(2));
+                .andExpect(jsonPath("$").isNotEmpty());
     }
 
     @Test

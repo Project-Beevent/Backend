@@ -24,7 +24,9 @@ docker run --name postgres-docker -e POSTGRES_PASSWORD=password -e POSTGRES_DB=k
 Now that the PostgreSQL container is running, you can build and start the Kanver Spring Boot application. Follow these steps:
 
 - You can run it simply by pressing run symobol in the main class "KanverApplication"
+
 OR
+
 - Running from the terminal
 1. Open the terminal, then navigate to the root directory of the Kanver project.
 2. Run the following Gradle command to build and run the application:
@@ -60,10 +62,11 @@ Code Coverage (JaCoCo) reports can be found in:
 ```
 build/reports/jacoco/test/html
 ```
-=======
 ## After Deployment
 
--You can access the backend side of kanver app by this link:
+- You can access the backend side of kanver app by this link:
 http://20.81.37.184
+
 OR
--Via Swagger : http://20.81.37.184/swagger-ui/index.html
+
+- Via Swagger : http://20.81.37.184/swagger-ui/index.html

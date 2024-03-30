@@ -13,6 +13,8 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
+@NoArgConstructor
+@AllArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
